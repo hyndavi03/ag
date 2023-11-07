@@ -24,10 +24,15 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./angular
 
     - name: Build Angular app
       run: npm run build -- --prod
+      working-directory: ./angular
 
     - name: Deploy to AWS S3
       run: |
         aws s3 sync dist/ s3://angular-buck
+      working-directory: ./angular
+
+  
