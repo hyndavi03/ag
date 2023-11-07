@@ -32,6 +32,12 @@ jobs:
       run: ng build --configuration=production
       working-directory: ./my-angular-app
 
+    - name: Install AWS CLI
+      run: |
+       sudo apt-get update
+       sudo apt-get install -y awscli
+
+
     - name: Deploy to AWS S3
       run: |
         cd my-angular-app
