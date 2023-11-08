@@ -1,4 +1,4 @@
-name: Angular Deploymnt
+name: Angular Deployment
 
 on:
   push:
