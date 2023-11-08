@@ -45,7 +45,8 @@ jobs:
 
       - name: Create S3 bucket
         run: |
-          aws s3api create-bucket --bucket angular-buck --region ap-south-1
+          aws s3api create-bucket --bucket angular-buck --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1
+
 
       - name: Deploy to AWS S3
         run: |
