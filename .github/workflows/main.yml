@@ -60,14 +60,15 @@ jobs:
         run: |
           aws s3api put-bucket-policy --bucket angular-buck --policy '{
             {
-             "Version": "2012-10-17",
-             "Statement": [
+              "Version": "2012-10-17",
+              "Statement": [
               {
                  "Effect": "Allow",
                  "Action": "s3:PutBucketPolicy",
                  "Resource": "arn:aws:s3:::angular-buck"
-             }
-           ]
+              }
+            ]
           }
+
 
           }'
