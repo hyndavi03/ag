@@ -43,28 +43,10 @@ jobs:
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws configure set default.region ${{ secrets.AWS_DEFAULT_REGION }}
 
-      - name: Create S3 bucket
-        run: |
-          aws s3api create-bucket --bucket angular-buck --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1
-
+    
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./my-angular-app/dist/ s3://angular-buck
+          aws s3 sync ./my-angular-app/src/ s3://angular-buck
 
-      - name: Configure S3 bucket for static website hosting
-        run: |
-          aws s3 website s3://angular-buck --index-document index.html --error-document index.html
-
-      - name: Set public read access for objects in the bucket
-        run: |
-          aws s3api put-bucket-policy --bucket angular-buck --policy '{
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Effect": "Allow",
-                "Principal": "*",
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::angular-buck/*"
-              }
-            ]
-          }'  
+      
+       
