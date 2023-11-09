@@ -55,16 +55,4 @@ jobs:
         run: |
           aws s3 website s3://angular-buck --index-document index.html --error-document index.html
 
-      - name: Set public read access for objects in the bucket
-        run: |
-          aws s3api put-bucket-policy --bucket angular-buck --policy '{
-            "Version": "2012-10-17",
-            "Statement": [
-              {
-                "Effect": "Allow",
-                "Principal": "*",
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::angular-buck/*"
-              }
-            ]
-          }'
+      
