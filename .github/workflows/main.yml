@@ -46,7 +46,7 @@ jobs:
     
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./dist/my-angular-app s3://angular-buck/
+          aws s3 sync ./dist/my-angular-app/ s3://angular-buck/
 
       
        
