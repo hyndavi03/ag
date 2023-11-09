@@ -1,4 +1,4 @@
-name: Angular Deployment
+name: Angular Deploymnt
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
     
       - name: Deploy to AWS S3
         run: |
-          aws s3 sync ./my-angular-app/dist/ s3://angular-buck/my-angular-app
+          aws s3 sync ./my-angular-app/dist/ s3://angular-buck/
 
       
        
